@@ -1,0 +1,33 @@
+9. Создать класс Book, спецификация которого приведена ниже. 
+Определить конструкторы, set- и get- методы и метод toString(). 
+Создать второй класс, агрегирующий массив типа Book, с подходящими конструкторами и методами. 
+Задать критерии выбора данных и вывести эти данные на консоль.
+Book: id, название, автор(ы), издательство, год издания, количество страниц, цена, тип переплета.
+Найти и вывести:
+a) список книг заданного автора;
+b) список книг, выпущенных заданным издательством;
+c) список книг, выпущенных после заданного года.
+
+
+
+ main method lines to check 
+ 
+		Book[] books = new Book[5];
+		books[0] = new Book("bookA", "Benson", "publisher1", 1990);
+		books[1] = new Book("bookB", "Johnson", "publisher1", 1993);
+		books[2] = new Book("bookC", "Johnson, Reddison", "publisher2", 1988);
+		books[3] = new Book("bookD", "Johnson", "publisher1", 1995);
+		books[4] = new Book("bookE", "Benson", "publisher3", 1998);
+
+		
+		BookOperations.printBooksAfterYear(books, 1993);
+		System.out.println();
+
+		BookOperations.printBooksByAuthor(books, "Johnson");
+		System.out.println();
+
+
+		BookOperations.printBooksByPublisher(books, "publisher2");
+		System.out.println();
+
+
