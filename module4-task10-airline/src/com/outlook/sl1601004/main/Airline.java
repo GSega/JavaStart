@@ -3,6 +3,7 @@ package com.outlook.sl1601004.main;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class Airline {
 	private String destination;
@@ -80,6 +81,25 @@ public class Airline {
 
 	public void setDayOfWeek(String dayOfWeek) {
 		this.dayOfWeek = dayOfWeek;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dayOfWeek, departureTime, destination, flightNumber, planeType);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Airline other = (Airline) obj;
+		return Objects.equals(dayOfWeek, other.dayOfWeek) && Objects.equals(departureTime, other.departureTime)
+				&& Objects.equals(destination, other.destination) && flightNumber == other.flightNumber
+				&& Objects.equals(planeType, other.planeType);
 	}
 
 }
