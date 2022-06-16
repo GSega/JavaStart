@@ -1,5 +1,7 @@
 package com.outlook.sl1601004.main;
 
+import java.util.Objects;
+
 public class Book {
 	private int id;
 	private String title;
@@ -111,6 +113,25 @@ public class Book {
 		return "Book [id=" + id + ", title=" + title + ", authors=" + authors + ", publisher=" + publisher + ", year="
 				+ year + ", quantity=" + quantity + ", pages=" + pages + ", price=" + price + ", binding=" + binding
 				+ "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(authors, binding, id, pages, price, publisher, quantity, title, year);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		return Objects.equals(authors, other.authors) && Objects.equals(binding, other.binding) && id == other.id
+				&& pages == other.pages && price == other.price && Objects.equals(publisher, other.publisher)
+				&& quantity == other.quantity && Objects.equals(title, other.title) && year == other.year;
 	}
 
 }

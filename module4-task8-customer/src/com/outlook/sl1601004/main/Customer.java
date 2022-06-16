@@ -1,6 +1,8 @@
 package com.outlook.sl1601004.main;
 //Класс Customer: id, фамилия, имя, отчество, адрес, номер кредитной карточки, номер банковского счета.
 
+import java.util.Objects;
+
 public class Customer {
 	private int id;
 	private String secondName;
@@ -94,4 +96,26 @@ public class Customer {
 	public void setFathersName(String fathersName) {
 		this.fathersName = fathersName;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(address, bankAccNumber, creditCardNumber, fathersName, firstName, id, secondName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		return Objects.equals(address, other.address) && Objects.equals(bankAccNumber, other.bankAccNumber)
+				&& Objects.equals(creditCardNumber, other.creditCardNumber)
+				&& Objects.equals(fathersName, other.fathersName) && Objects.equals(firstName, other.firstName)
+				&& id == other.id && Objects.equals(secondName, other.secondName);
+	}
+	
+	
 }
