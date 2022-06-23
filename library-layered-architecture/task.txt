@@ -1,0 +1,10 @@
+User
+logination (login, pass)
+registration(login, pass, name, surname)
+editProfile(.......)
+
+Lib
+add(book b)
+remove(int id)
+remove(Book b)
+find(title)
